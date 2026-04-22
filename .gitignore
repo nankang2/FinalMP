@@ -1,0 +1,71 @@
+############################
+# Unity generated folders
+############################
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+MemoryCaptures/
+Recordings/
+
+############################
+# Unity Android / Gradle / CMake (IMPORTANT for your case)
+############################
+.utmp/
+.gradle/
+ExportedObj/
+*.apk
+*.aab
+
+############################
+# Visual Studio / Rider / VSCode
+############################
+.vs/
+.vscode/
+.idea/
+
+*.csproj
+*.sln
+*.user
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+
+############################
+# OS files
+############################
+.DS_Store
+Thumbs.db
+desktop.ini
+
+############################
+# Crash reports
+############################
+sysinfo.txt
+
+############################
+# Addressables
+############################
+[Aa]ssets/[Aa]ddressable[Aa]ssetsData/*/*.bin*
+
+############################
+# Unity Cloud / Collaborate
+############################
+.collabignore
+
+############################
+# IL2CPP
+############################
+il2cpp_cache/
+
+############################
+# Build artifacts
+############################
+*.exe
+*.app
+*.unitypackage
