@@ -2927,9 +2927,9 @@ MonoBehaviour:
   maxHearts: 3
   currentHearts: 3
   hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 247949458}
+  - {fileID: 1996289022}
+  - {fileID: 256160390}
 --- !u!114 &651751821
 MonoBehaviour:
   m_ObjectHideFlags: 0
