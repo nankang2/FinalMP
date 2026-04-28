@@ -9,10 +9,12 @@ Group Members:
 
 # About The Game
 This is a VR game created on Unity 6.3 and tested on the Meta Quest 3.<br/>
+You are trapped in a dark manor hunted by a roaming creature. The creature navigates the environment on its own and will aggressively chase you once it sees you. Using the torch built into your left controller, you must stun the creature, explore the darkness, collect keys, and escape before it catches you.
 <br/>
 
 # Credits
 Models <br/>
 
 Audio <br/>
-heartbeat: https://pixabay.com/sound-effects/film-special-effects-thudding-heartbeat-372487/
+heartbeat: https://pixabay.com/sound-effects/film-special-effects-thudding-heartbeat-372487/ <br/>
+https://pixabay.com/sound-effects/household-footsteps-stairs-slow-106711/ <br/>
