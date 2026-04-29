@@ -15,6 +15,9 @@ public class FlashlightDim : MonoBehaviour
     public float flickerSpeed = 0.08f;
     public float flickerAmount = 0.45f;
 
+    public AudioSource audioSource;
+    public AudioClip toggleSound;
+
     private float timer;
     private float nextFlickerTime;
     private float currentFlickerOffset;
@@ -42,6 +45,15 @@ public class FlashlightDim : MonoBehaviour
     {
         if (flashlightLight == null)
             flashlightLight = GetComponentInChildren<Light>(true);
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 1f;
 
         if (flashlightLight != null)
             flashlightLight.enabled = flashlightOn;
@@ -83,6 +95,7 @@ public class FlashlightDim : MonoBehaviour
         {
             flashlightLight.enabled = false;
             flashlightOn = false;
+            PlayToggleSound();
         }
     }
 
@@ -91,5 +104,14 @@ public class FlashlightDim : MonoBehaviour
         if (timer >= drainDuration) return;
 
         flashlightOn = !flashlightOn;
+
+        PlayToggleSound();
+    }
+
+    void PlayToggleSound()
+    {
+        if (audioSource == null) return;
+
+        audioSource.PlayOneShot(audioSource.clip);
     }
 }

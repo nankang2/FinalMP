@@ -1,12 +1,14 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHearts = 3;
     public int currentHearts;
 
-    public GameObject[] hearts; 
+    public GameObject[] hearts;
+
+    public Transform playerToTeleport;
+    public Transform loseTeleportLocation;
 
     private bool isDead = false;
 
@@ -42,6 +44,16 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         isDead = true;
-        Debug.Log("Player died");
+        Debug.Log("Player lost all hearts. Teleporting to lose room.");
+
+        if (playerToTeleport != null && loseTeleportLocation != null)
+        {
+            playerToTeleport.position = loseTeleportLocation.position;
+            playerToTeleport.rotation = loseTeleportLocation.rotation;
+        }
+        else
+        {
+            Debug.LogWarning("Player To Teleport or Lose Teleport Location is not assigned.");
+        }
     }
 }
