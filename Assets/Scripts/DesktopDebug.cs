@@ -8,12 +8,11 @@ public class DesktopDebugMove : MonoBehaviour
     public float mouseSensitivity = 0.15f;
 
     private float pitch;
-    private bool mouseLocked = true;
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         if (cameraTransform == null && Camera.main != null)
             cameraTransform = Camera.main.transform;
@@ -21,22 +20,21 @@ public class DesktopDebugMove : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            mouseLocked = !mouseLocked;
-            Cursor.lockState = mouseLocked ? CursorLockMode.Locked : CursorLockMode.None;
-            Cursor.visible = !mouseLocked;
-        }
+        if (cameraTransform == null) return;
 
-        if (!mouseLocked || cameraTransform == null)
-            return;
-
-        LookAround();
         Move();
+        LookAround();
     }
 
     void LookAround()
     {
+        // Only look when holding RIGHT CLICK
+        if (!Mouse.current.rightButton.isPressed)
+            return;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
 
         float mouseX = mouseDelta.x * mouseSensitivity;
@@ -52,6 +50,7 @@ public class DesktopDebugMove : MonoBehaviour
 
     void Move()
     {
+        // Always allow WASD movement
         Vector2 moveInput = Vector2.zero;
 
         if (Keyboard.current.wKey.isPressed) moveInput.y += 1;
@@ -74,5 +73,15 @@ public class DesktopDebugMove : MonoBehaviour
             move.Normalize();
 
         transform.position += move * moveSpeed * Time.deltaTime;
+    }
+
+    void LateUpdate()
+    {
+        // If NOT holding right click → unlock cursor for UI
+        if (!Mouse.current.rightButton.isPressed)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }
