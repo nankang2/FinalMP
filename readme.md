@@ -18,3 +18,5 @@ Models <br/>
 Audio <br/>
 heartbeat: https://pixabay.com/sound-effects/film-special-effects-thudding-heartbeat-372487/ <br/>
 https://pixabay.com/sound-effects/household-footsteps-stairs-slow-106711/ <br/>
+Flashlight hum: https://pixabay.com/sound-effects/film-special-effects-mechanical-hum-64405/ <br/>
+Flashlight on/off click: https://pixabay.com/sound-effects/film-special-effects-flashlight-clicking-on-105809/ <br/>
