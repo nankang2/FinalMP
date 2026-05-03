@@ -10,6 +10,9 @@ public class PlayerHealth : MonoBehaviour
     public Transform playerToTeleport;
     public Transform loseTeleportLocation;
 
+    public ScreenDarkenEffect darkenEffect;
+    public AudioSource damageAudio;
+
     private bool isDead = false;
 
     void Start()
@@ -26,6 +29,16 @@ public class PlayerHealth : MonoBehaviour
         currentHearts = Mathf.Clamp(currentHearts, 0, maxHearts);
 
         UpdateHeartsUI();
+
+        if (darkenEffect != null)
+        {
+            darkenEffect.FlashDark();
+        }
+
+        if (damageAudio != null)
+        {
+            damageAudio.Play();
+        }
 
         if (currentHearts <= 0)
         {
